@@ -30,6 +30,6 @@ class EventCreated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.event.created');
+        return $this->markdown('emails.event.created')->subject("Event {$this->event->name} aangemaakt");
     }
 }

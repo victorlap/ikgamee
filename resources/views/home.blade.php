@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="date" name="date" value="{{ old('date') }}" class="form-control" required>
+                            <input type="date" name="date" value="{{ old('date') }}" class="form-control" required min="{{ date('Y-m-d') }}">
                         </div>
 
                         <div class="form-group">

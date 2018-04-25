@@ -1,5 +1,5 @@
 @component('mail::message')
-# Woehoe
+# Woehoe!
 
 Je event {{ $event->name }} is aangemaakt!
 
@@ -11,6 +11,4 @@ Je kunt je event bereiken en delen via onderstaande knop.
 Ga naar je event
 @endcomponent
 
-Thanks,<br>
-Het {{ config('app.name') }} Team
 @endcomponent
