@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::post('attendee', 'AttendeeController@store')->name('attendee.store');
+
 Route::get('event/{event}', 'EventController@show')->name('event.show');
 Route::post('event', 'EventController@store')->name('event.store');
-
-Route::post('attendee.store', 'AttendeeController@store')->name('attendee.store');
