@@ -19,10 +19,9 @@ class EventController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|max:255',
-            'date' => 'date'
+            'date' => 'date',
+            'email' => 'nullable|max:255|email'
         ]);
-
-        $data['hash'] = md5($data['name'] . $data['date'] . time());
 
         $event = new Event($data);
         $event->save();

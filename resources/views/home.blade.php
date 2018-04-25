@@ -34,6 +34,10 @@
                         </div>
 
                         <div class="form-group">
+                            <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email (optioneel)">
+                        </div>
+
+                        <div class="form-group">
                             <input class="btn btn-primary" type="submit" value="Opslaan">
                         </div>
                     </form>
