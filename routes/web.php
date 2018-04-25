@@ -11,8 +11,9 @@
 |
 */
 
-Route::view('/', 'home');
+Route::get('/', 'HomeController@index');
 
-Route::resource('event', 'EventController');
+Route::get('event/{event}', 'EventController@show')->name('event.show');
+Route::post('event', 'EventController@store')->name('event.store');
 
-Route::resource('attendee', 'AttendeeController');
+Route::post('attendee.store', 'AttendeeController@store')->name('attendee.store');

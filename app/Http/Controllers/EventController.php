@@ -4,28 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -56,41 +38,15 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
+        $this->addToRecent($event);
+
         $shareText = 'Ben jij erbij? Geef nu je beschikbaarheid door: '. urlencode($event->link);
         return view('event.show')->withEvent($event)->withShareText($shareText);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Event $event)
-    {
-        //
+    public function addToRecent(Event $event) {
+        $recent = Session::get('recent_events', []);
+        Session::put('recent_events', array_unique(array_merge([$event->hash], $recent)));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Event $event)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Event $event)
-    {
-        //
-    }
 }

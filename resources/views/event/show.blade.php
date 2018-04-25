@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Ik ga mee naar {{ $event->name }}
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -59,7 +63,7 @@
                             @csrf
                             <input type="hidden" name="event_hash" value="{{ $event->hash }}">
                             <div class="form-group">
-                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Naam">
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Naam" required>
                             </div>
 
                             <div class="form-check">
