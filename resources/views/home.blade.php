@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    @if($recentEvents)
+    @if(count($recentEvents) > 0)
     <div class="row justify-content-center py-4">
         <div class="col-md-8">
             <div class="card">
