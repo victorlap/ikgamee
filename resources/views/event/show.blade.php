@@ -7,6 +7,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h2>Wie gaat er mee naar {{ $event->name }}?</h2>
+                        <h4>{{ $event->date->format('d F Y') }}</h4>
 
                             @forelse($event->attendees as $attendee)
 
