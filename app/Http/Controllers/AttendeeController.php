@@ -18,10 +18,10 @@ class AttendeeController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'event_hash' => 'exists:events,hash',
-            'name' => 'required',
-            'attends' => 'boolean'
+            'event_hash' => 'required|exists:events,hash',
+            'name' => 'required|max:255',
         ]);
+        $data['attends'] = $request->has('attends');
 
         $event = Event::where('hash', $data['event_hash'])->first();
 

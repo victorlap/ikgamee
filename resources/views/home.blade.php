@@ -22,24 +22,25 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('event.store')  }}" method="POST">
+                    <form action="{{ route('event.store')  }}" method="POST" class="mb-0">
                         @csrf
 
                         <div class="form-group">
-                            <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Naam" required>
+                            <label for="name" class="bmd-label-floating">Naam</label>
+                            <input type="text" name="name" value="{{ old('name') }}" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <input type="date" name="date" value="{{ old('date') }}" class="form-control" required min="{{ date('Y-m-d') }}">
+                            <label for="date" class="bmd-label-floating">Datum</label>
+                            <input type="date" name="date" value="{{ old('date', date('Y-m-d')) }}" class="form-control" required min="{{ date('Y-m-d') }}">
                         </div>
 
                         <div class="form-group">
-                            <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email (optioneel)">
+                            <label for="email" class="bmd-label-floating">Email (optioneel)</label>
+                            <input type="email" name="email" value="{{ old('email') }}" class="form-control">
                         </div>
 
-                        <div class="form-group">
-                            <input class="btn btn-primary" type="submit" value="Opslaan">
-                        </div>
+                        <button class="btn btn-primary btn-raised" type="submit">Opslaan</button>
                     </form>
                 </div>
             </div>

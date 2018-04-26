@@ -16,9 +16,9 @@
                             @forelse($event->attendees as $attendee)
 
                                 @if($attendee->attends)
-                                    <i class="fas fa-check text-success"></i>
+                                    <i class="fa fa-check text-success"></i>
                                 @else
-                                    <i class="fas fa-times text-danger"></i>
+                                    <i class="fa fa-times text-danger"></i>
                                 @endif
 
                                 {{ $attendee->name }}
@@ -31,10 +31,10 @@
                         <p class="text-muted pt-4 mb-0">
                             Share:
                             <a href="whatsapp://send?text={{ $shareText }}" class="text-muted d-block d-sm-none">
-                                <i class="fab fa-whatsapp"></i> Whatsapp
+                                <i class="fa fa-whatsapp"></i> Whatsapp
                             </a>
                             <a href="mailto:?subject=Ga%20jij%20mee%3F&body={{ $shareText }}" class="text-muted">
-                                <i class="far fa-envelope"></i> Email
+                                <i class="fa fa-envelope-o"></i> Email
                             </a>
                         </p>
                     </div>
@@ -59,23 +59,22 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('attendee.store')  }}" method="POST">
+                        <form action="{{ route('attendee.store')  }}" method="POST" class="mb-0">
                             @csrf
                             <input type="hidden" name="event_hash" value="{{ $event->hash }}">
                             <div class="form-group">
-                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Naam" required>
+                                <label for="name" class="bmd-label-floating">Naam</label>
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" required>
                             </div>
 
-                            <div class="form-check">
+                            <div class="form-check form-group">
                                 <input class="form-check-input" type="checkbox" checked id="attends" name="attends" value="1">
                                 <label class="form-check-label" for="attends">
                                     Ik ben erbij!
                                 </label>
                             </div>
 
-                            <div class="form-group">
-                                <input class="btn btn-primary" type="submit" value="Opslaan">
-                            </div>
+                            <input class="btn btn-primary btn-raised" type="submit" value="Opslaan">
                         </form>
                     </div>
                 </div>
