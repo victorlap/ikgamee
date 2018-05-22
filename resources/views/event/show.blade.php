@@ -30,7 +30,7 @@
 
                         <p class="text-muted pt-4 mb-0">
                             Share:
-                            <a href="https://api.whatsapp.com/send?text={{ $shareText }}" class="text-muted">
+                            <a target="_blank" href="https://api.whatsapp.com/send?text={{ $shareText }}" class="text-muted">
                                 <i class="fa fa-whatsapp"></i> Whatsapp
                             </a>
                             <a href="mailto:?subject=Ga%20jij%20mee%3F&body={{ $shareText }}" class="text-muted">
